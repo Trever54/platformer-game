@@ -79,18 +79,22 @@ public class PlayerMovementSystem extends IteratingSystem {
 				ppc.playerPhysicsFixture.setFriction(0.2f);
 				ppc.playerSensorFixture.setFriction(0.2f);
 			}
-			
-			// moving platform stuff TODO
+			// moving platform stuff
 			if (groundedPlatform != null) {
 				if (!GameKeys.isDown(GameKeys.LEFT) 
-						&& !GameKeys.isDown(GameKeys.RIGHT)
-						&& !GameKeys.isDown(GameKeys.SPACE)
-						&& !ppc.jump
-						&& ppc.grounded) {
-					bc.body.setLinearVelocity(groundedPlatform.getLinearVelocity());
+						&& !GameKeys.isDown(GameKeys.RIGHT)) {
+					// TODO: Bug where vertical platform going down causes player to 'fall'
+					bc.body.setLinearVelocity(groundedPlatform.getLinearVelocity().x, bc.body.getLinearVelocity().y);
+					/*
+					//System.out.println(groundedPlatform.getLinearVelocity().y);
+					if (groundedPlatform.getLinearVelocity().y < 0) {
+						bc.body.setLinearVelocity(groundedPlatform.getLinearVelocity());
+					} else {
+						bc.body.setLinearVelocity(groundedPlatform.getLinearVelocity().x, bc.body.getLinearVelocity().y);
+					}
+					*/
 				}
 			}
-			
 		}
 		// handle key input
 		if (GameKeys.isDown(GameKeys.LEFT) && vc.velocity.x > -ppc.MAX_VELOCITY) {
@@ -113,7 +117,7 @@ public class PlayerMovementSystem extends IteratingSystem {
 				bc.body.setTransform(pc.x, pc.y + 0.01f, 0);
 				bc.body.applyLinearImpulse(0, ppc.jumpPower, pc.x, pc.y, true);	
 			}
-		}
+		}	
 	}
 	
 	private boolean isGrounded(float deltaTime, Fixture playerSensorFixture, float posY) {

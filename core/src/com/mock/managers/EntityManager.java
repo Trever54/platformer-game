@@ -95,7 +95,7 @@ public class EntityManager {
 			.add(new RenderableComponent());
 		engine.addEntity(box);
 		
-		// create and add moving platform to engine
+		// create and add moving platform to engine (Horizontal)
 		Entity movingPlatform = new Entity();
 		bdef = new BodyDef();
 		bdef.type = BodyType.KinematicBody;
@@ -106,13 +106,33 @@ public class EntityManager {
 		platformFixture.setUserData("MOVING_PLATFORM");
 		poly.dispose();
 		pcom = new PositionComponent(400, 200);
-		box.add(pcom)
+		movingPlatform.add(pcom)
 			.add(new BodyComponent(pcom, body))
 			.add(new VelocityComponent(new Vector2(1, 0)))
 			.add(new SpriteComponent(new Texture("platform.png")))
 			.add(new RenderableComponent())
 			.add(new MovingPlatformComponent(0, 3f));
 		engine.addEntity(movingPlatform);
+		
+		// create and add moving platform to engine (Vertical)
+		Entity movingPlatformV = new Entity();
+		bdef = new BodyDef();
+		bdef.type = BodyType.KinematicBody;
+		body = WorldManager.world.createBody(bdef);
+		poly = new PolygonShape();
+		poly.setAsBox(32 / PPM, 16 /PPM);
+		Fixture platformFixtureV = body.createFixture(poly, 1);
+		platformFixtureV.setUserData("MOVING_PLATFORM");
+		poly.dispose();
+		pcom = new PositionComponent(300, 150);
+		movingPlatformV.add(pcom)
+			.add(new BodyComponent(pcom, body))
+			.add(new VelocityComponent(new Vector2(0, 1)))
+			.add(new SpriteComponent(new Texture("platform.png")))
+			.add(new RenderableComponent())
+			.add(new MovingPlatformComponent(0f, 3f));
+		engine.addEntity(movingPlatformV);
+		
 	}
 	
 	public void update() {

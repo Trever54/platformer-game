@@ -13,7 +13,7 @@ public class Game extends ApplicationAdapter {
 	public final static String TITLE = "Platformer Drafting";
 	public final static int BIT_SIZE = 32;
 	public final static int GRAVITY = -20;
-	public final static boolean DEBUG = false;
+	public final static boolean DEBUG = true;
 	
 	public static int V_WIDTH;
 	public static int V_HEIGHT;

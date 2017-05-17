@@ -23,8 +23,8 @@ public class PlayerPhysicsComponent implements Component {
 		this.jumpPower = 1.3f;		// bigger means higher jump (1.3)
 		this.movementPower = 0.02f;	// bigger means a faster increase to maximum speed (0.02
 		
-		boolean jump = false;
-		boolean grounded = true;
+		this.jump = false;
+		this.grounded = true;
 		this.stillTime = 0;
 		this.lastGroundTime = 0;
 		
