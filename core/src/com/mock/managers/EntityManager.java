@@ -127,7 +127,7 @@ public class EntityManager {
 		pcom = new PositionComponent(300, 150);
 		movingPlatformV.add(pcom)
 			.add(new BodyComponent(pcom, body))
-			.add(new VelocityComponent(new Vector2(0, 1)))
+			.add(new VelocityComponent(new Vector2(0, 3)))
 			.add(new SpriteComponent(new Texture("platform.png")))
 			.add(new RenderableComponent())
 			.add(new MovingPlatformComponent(0f, 3f));

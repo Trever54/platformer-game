@@ -83,16 +83,7 @@ public class PlayerMovementSystem extends IteratingSystem {
 			if (groundedPlatform != null) {
 				if (!GameKeys.isDown(GameKeys.LEFT) 
 						&& !GameKeys.isDown(GameKeys.RIGHT)) {
-					// TODO: Bug where vertical platform going down causes player to 'fall'
-					bc.body.setLinearVelocity(groundedPlatform.getLinearVelocity().x, bc.body.getLinearVelocity().y);
-					/*
-					//System.out.println(groundedPlatform.getLinearVelocity().y);
-					if (groundedPlatform.getLinearVelocity().y < 0) {
-						bc.body.setLinearVelocity(groundedPlatform.getLinearVelocity());
-					} else {
-						bc.body.setLinearVelocity(groundedPlatform.getLinearVelocity().x, bc.body.getLinearVelocity().y);
-					}
-					*/
+					bc.body.setLinearVelocity(groundedPlatform.getLinearVelocity());
 				}
 			}
 		}
@@ -113,6 +104,7 @@ public class PlayerMovementSystem extends IteratingSystem {
 		if(ppc.jump) {			
 			ppc.jump = false;
 			if(ppc.grounded) {
+				groundedPlatform = null;
 				bc.body.setLinearVelocity(vc.velocity.x, 0);			
 				bc.body.setTransform(pc.x, pc.y + 0.01f, 0);
 				bc.body.applyLinearImpulse(0, ppc.jumpPower, pc.x, pc.y, true);	
