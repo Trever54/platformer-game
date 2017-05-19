@@ -18,6 +18,11 @@ import com.mock.ecs.components.VelocityComponent;
 import com.mock.input.GameKeys;
 import com.mock.managers.WorldManager;
 
+/**
+ * Part of the Ashley ECS. This system handles player physics and
+ * player movement.
+ * @author Trever Mock
+ */
 public class PlayerMovementSystem extends IteratingSystem {
 	
 	private Body groundedPlatform = null;

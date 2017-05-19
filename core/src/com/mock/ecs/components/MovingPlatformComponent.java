@@ -2,6 +2,10 @@ package com.mock.ecs.components;
 
 import com.badlogic.ashley.core.Component;
 
+/**
+ * Components specific to moving platforms
+ * @author Trever Mock
+ */
 public class MovingPlatformComponent implements Component {
 
 	public float currentDistance;

@@ -1,6 +1,6 @@
 package com.mock.states;
 
-import static com.mock.utility.B2DVars.PPM;
+import static com.mock.main.Game.PPM;
 
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.gdx.Gdx;
@@ -14,6 +14,12 @@ import com.mock.managers.EntityManager;
 import com.mock.managers.GameStateManager;
 import com.mock.managers.WorldManager;
 
+/**
+ * Represents the typical platformer game state.
+ * This class should be inherited by any zone in
+ * the game.
+ * @author Trever Mock
+ */
 public class PlatformerState extends GameState {
 	
 	private TiledMapHandler tmh;

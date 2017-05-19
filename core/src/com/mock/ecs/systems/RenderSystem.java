@@ -1,6 +1,5 @@
 package com.mock.ecs.systems;
 
-import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.EntitySystem;
@@ -11,11 +10,14 @@ import com.mock.ecs.components.PositionComponent;
 import com.mock.ecs.components.RenderableComponent;
 import com.mock.ecs.components.SpriteComponent;
 
+/**
+ * Part of the Ashley ECS. This system renders Entity
+ * sprites at their corresponding position component.
+ * @author Trever Mock
+ */
 public class RenderSystem extends EntitySystem {
 
 	private ImmutableArray<Entity> entities;
-	
-	private ComponentMapper<PositionComponent> pm = ComponentMapper.getFor(PositionComponent.class);
 	
 	public RenderSystem(int priority) {
 		super(priority);

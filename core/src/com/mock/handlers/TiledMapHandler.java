@@ -18,6 +18,12 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.mock.main.Game;
 import com.mock.utility.CollisionAlgorithm;
 
+/**
+ * Takes in a path to a Tiled Map and creates a map by layers
+ * which is stored in the world for some PlatformerState.
+ * Also handles rendering of each layer in separate methods.
+ * @author Trever Mock
+ */
 public class TiledMapHandler {
 
     private TiledMap tileMap;

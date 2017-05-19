@@ -3,6 +3,11 @@ package com.mock.input;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputProcessor;
 
+/**
+ * The event listener utilized by GameKeys.java to
+ * keep track of when keys are pressed.
+ * @author Trever
+ */
 public class GameInputProcessor implements InputProcessor {
 
 	@Override

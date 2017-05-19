@@ -3,6 +3,11 @@ package com.mock.ecs.components;
 import com.badlogic.ashley.core.Component;
 import com.badlogic.gdx.math.Vector2;
 
+/**
+ * Velocity component for an entity. Velocity can be defined
+ * as an entities movement between frames.
+ * @author Trever Mock
+ */
 public class VelocityComponent implements Component {
 
 	public Vector2 velocity;

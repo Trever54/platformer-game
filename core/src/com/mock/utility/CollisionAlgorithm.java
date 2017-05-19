@@ -1,7 +1,7 @@
 package com.mock.utility;
 
 import static com.mock.main.Game.BIT_SIZE;
-import static com.mock.utility.B2DVars.PPM;
+import static com.mock.main.Game.PPM;
 
 import java.util.ArrayList;
 
@@ -9,6 +9,12 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer.Cell;
 import com.badlogic.gdx.math.Vector2;
 
+/**
+ * Class that handles creating collision
+ * boxes based on the tiled map collision
+ * layer.
+ * @author Trever Mock
+ */
 public class CollisionAlgorithm {
 
     private TiledMapTileLayer collisionLayer;

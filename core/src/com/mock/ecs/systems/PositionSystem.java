@@ -1,6 +1,6 @@
 package com.mock.ecs.systems;
 
-import static com.mock.utility.B2DVars.PPM;
+import static com.mock.main.Game.PPM;
 
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
@@ -11,6 +11,9 @@ import com.mock.ecs.components.PositionComponent;
 import com.mock.ecs.components.SpriteComponent;
 
 /**
+ * Part of the Ashley ECS. This system keeps track of an Entities position and correctly determines position
+ * by the priority: Body => Position => Sprite (highest to lowest).
+ * 
  * Code taken from: 
  * https://github.com/LetsMakeAnIndieGame/PhysicsShmup/blob/master/core/src/com/mygdx/game/systems/PositionSystem.java
  */
@@ -38,7 +41,5 @@ public class PositionSystem extends IteratingSystem {
 			spriteCom.sprite.setX(positionCom.x);
 			spriteCom.sprite.setY(positionCom.y);
 		}
-		
 	}
-	
 }

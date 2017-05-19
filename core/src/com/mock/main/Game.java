@@ -8,12 +8,28 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.mock.input.GameInputProcessor;
 import com.mock.managers.GameStateManager;
 
+/**
+ * Main class called by the DesktopLauncher to start
+ * the program. Also contains final static variables that
+ * have a wide scope over the entire game.
+ * @author Trever Mock
+ */
 public class Game extends ApplicationAdapter {
 	
+	/** Title read on the programs window pane */
 	public final static String TITLE = "Platformer Drafting";
+	
+	/** The standard bit size of the game */
 	public final static int BIT_SIZE = 32;
+	
+	/** Gravity used in the Platformer State */
 	public final static int GRAVITY = -20;
+	
+	/** Turns on box2d debugging such that collision boundaries can be seen */
 	public final static boolean DEBUG = true;
+	
+	/** Pixels Per Meter variable used in box2d conversions */
+	public static final float PPM = 100;
 	
 	public static int V_WIDTH;
 	public static int V_HEIGHT;

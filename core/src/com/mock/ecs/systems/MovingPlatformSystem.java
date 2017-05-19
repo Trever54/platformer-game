@@ -6,12 +6,18 @@ import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
 import com.mock.ecs.components.BodyComponent;
 import com.mock.ecs.components.MovingPlatformComponent;
-import com.mock.ecs.components.PositionComponent;
 import com.mock.ecs.components.VelocityComponent;
 
+/**
+ * Part of the Ashley ECS.
+ * This system handles moving platform entities. These are
+ * non-player entities that have predictable movement behavior
+ * back and forth along some vector.
+ * @author Trever Mock
+ *
+ */
 public class MovingPlatformSystem extends IteratingSystem {
 
-	private ComponentMapper<PositionComponent> positionMap = ComponentMapper.getFor(PositionComponent.class);
 	private ComponentMapper<BodyComponent> bodyMap = ComponentMapper.getFor(BodyComponent.class);
 	private ComponentMapper<VelocityComponent> velocityMap = ComponentMapper.getFor(VelocityComponent.class);
 	private ComponentMapper<MovingPlatformComponent> mpMap = ComponentMapper.getFor(MovingPlatformComponent.class);
@@ -22,7 +28,6 @@ public class MovingPlatformSystem extends IteratingSystem {
 
 	@Override
 	protected void processEntity(Entity entity, float deltaTime) {
-		PositionComponent positionCom = positionMap.get(entity);
 		BodyComponent bodyCom = bodyMap.get(entity);
 		VelocityComponent velCom = velocityMap.get(entity);
 		MovingPlatformComponent mpCom = mpMap.get(entity);

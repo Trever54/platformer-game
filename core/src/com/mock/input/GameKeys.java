@@ -1,5 +1,9 @@
 package com.mock.input;
 
+/**
+ * Handles returning key input by simple method calls.
+ * @author Trever Mock
+ */
 public class GameKeys {
     
     private static boolean[] keys;

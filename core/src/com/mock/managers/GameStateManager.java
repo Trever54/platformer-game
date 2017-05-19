@@ -6,7 +6,11 @@ import com.mock.main.Game;
 import com.mock.states.GameState;
 import com.mock.zones.ZoneOne;
 
-
+/**
+ * Manages which game state is currently being rendered
+ * and updated.
+ * @author Trever Mock
+ */
 public class GameStateManager {
     
     public static final int PLATFORMER_STATE = 0;

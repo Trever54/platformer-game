@@ -1,6 +1,6 @@
 package com.mock.managers;
 
-import static com.mock.utility.B2DVars.PPM;
+import static com.mock.main.Game.PPM;
 
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
@@ -27,6 +27,13 @@ import com.mock.ecs.systems.PositionSystem;
 import com.mock.ecs.systems.RenderSystem;
 import com.mock.main.Game;
 
+/**
+ * Manages the Entities for some PlatformerState.
+ * This class is in charge of updating and rendering
+ * entities in a PlatformerState according to defined
+ * systems.
+ * @author Trever Mock
+ */
 public class EntityManager {
 	
 	private Engine engine;
@@ -40,6 +47,7 @@ public class EntityManager {
 	public EntityManager(Engine engine) {
 		this.engine = engine;
 		
+		// Declare Systems and Priorities of Systems
 		mps = new MovingPlatformSystem(0);
 		engine.addSystem(mps);
 		pms = new PlayerMovementSystem(1);
@@ -49,6 +57,7 @@ public class EntityManager {
 		rs = new RenderSystem(3);
 		engine.addSystem(rs);
 		
+		// Create Entities
 		player = new Entity();
 		
 		// Create Player Body
@@ -86,7 +95,7 @@ public class EntityManager {
 		body = WorldManager.world.createBody(bdef);
 		poly = new PolygonShape();
 		poly.setAsBox(16 / PPM, 16 /PPM);
-		Fixture boxFixture = body.createFixture(poly, 1);
+		body.createFixture(poly, 1);
 		poly.dispose();
 		pcom = new PositionComponent(200, 150);
 		box.add(pcom)
@@ -120,7 +129,7 @@ public class EntityManager {
 		bdef.type = BodyType.KinematicBody;
 		body = WorldManager.world.createBody(bdef);
 		poly = new PolygonShape();
-		poly.setAsBox(320 / PPM, 16 /PPM); // TODO: 32, 16
+		poly.setAsBox(32 / PPM, 16 /PPM);
 		Fixture platformFixtureV = body.createFixture(poly, 1);
 		platformFixtureV.setUserData("MOVING_PLATFORM");
 		poly.dispose();
@@ -130,7 +139,7 @@ public class EntityManager {
 			.add(new VelocityComponent(new Vector2(1, 1)))
 			.add(new SpriteComponent(new Texture("platform.png")))
 			.add(new RenderableComponent())
-			.add(new MovingPlatformComponent(1f, 1f));
+			.add(new MovingPlatformComponent(1f, 3f));
 		engine.addEntity(movingPlatformV);
 		
 	}

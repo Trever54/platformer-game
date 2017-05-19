@@ -5,6 +5,13 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.mock.main.Game;
 import com.mock.managers.GameStateManager;
 
+/**
+ * Abstract class of a game state that should be
+ * inherited for any state of the game. Ensures that
+ * game states will have the appropriate methods and
+ * objects.
+ * @author Trever Mock
+ */
 public abstract class GameState {
     
     protected GameStateManager gsm;

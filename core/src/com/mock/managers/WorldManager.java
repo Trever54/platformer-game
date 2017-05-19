@@ -2,6 +2,12 @@ package com.mock.managers;
 
 import com.badlogic.gdx.physics.box2d.World;
 
+/**
+ * Manages the world for some PlatformerState such that
+ * other classes outside of the PlatformerState can
+ * edit the World.
+ * @author Trever Mock
+ */
 public class WorldManager {
 
 	public static World world;
