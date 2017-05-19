@@ -120,17 +120,17 @@ public class EntityManager {
 		bdef.type = BodyType.KinematicBody;
 		body = WorldManager.world.createBody(bdef);
 		poly = new PolygonShape();
-		poly.setAsBox(32 / PPM, 16 /PPM);
+		poly.setAsBox(320 / PPM, 16 /PPM); // TODO: 32, 16
 		Fixture platformFixtureV = body.createFixture(poly, 1);
 		platformFixtureV.setUserData("MOVING_PLATFORM");
 		poly.dispose();
-		pcom = new PositionComponent(300, 150);
+		pcom = new PositionComponent(300, 300);
 		movingPlatformV.add(pcom)
 			.add(new BodyComponent(pcom, body))
-			.add(new VelocityComponent(new Vector2(0, 3)))
+			.add(new VelocityComponent(new Vector2(1, 1)))
 			.add(new SpriteComponent(new Texture("platform.png")))
 			.add(new RenderableComponent())
-			.add(new MovingPlatformComponent(0f, 3f));
+			.add(new MovingPlatformComponent(1f, 1f));
 		engine.addEntity(movingPlatformV);
 		
 	}

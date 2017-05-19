@@ -84,6 +84,8 @@ public class PlayerMovementSystem extends IteratingSystem {
 				if (!GameKeys.isDown(GameKeys.LEFT) 
 						&& !GameKeys.isDown(GameKeys.RIGHT)) {
 					bc.body.setLinearVelocity(groundedPlatform.getLinearVelocity());
+				} else {
+					bc.body.setLinearVelocity(bc.body.getLinearVelocity().x, groundedPlatform.getLinearVelocity().y);
 				}
 			}
 		}

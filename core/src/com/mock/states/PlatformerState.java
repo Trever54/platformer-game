@@ -66,7 +66,7 @@ public class PlatformerState extends GameState {
 		tmh.renderCollisionTerrainLayer(sb, game.getCamera());
 		tmh.renderNonCollisionTerrainLayer(sb, game.getCamera());
 		entityManager.render(sb);
-		
+
 		// Box2D Debugging stuff
         if (Game.DEBUG) {
             b2dr.render(WorldManager.world, b2dCam.combined);
