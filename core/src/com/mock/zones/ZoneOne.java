@@ -2,6 +2,7 @@ package com.mock.zones;
 
 import com.mock.managers.GameStateManager;
 import com.mock.states.PlatformerState;
+import com.mock.utility.ZoneBounds;
 
 /**
  * Currently a test zone such that to test
@@ -12,7 +13,7 @@ import com.mock.states.PlatformerState;
 public class ZoneOne extends PlatformerState {
 	
 	public ZoneOne(GameStateManager gsm) {
-		super(gsm, "testTileMap.tmx");
+		super(gsm, "testTileMap.tmx", new ZoneBounds(0, 4768, 0, 800));
 	}
 
 }

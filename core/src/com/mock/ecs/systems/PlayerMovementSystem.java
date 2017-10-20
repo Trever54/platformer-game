@@ -120,7 +120,7 @@ public class PlayerMovementSystem extends IteratingSystem {
 	}
 	
 	private boolean isGrounded(float deltaTime, Fixture playerSensorFixture, float posY) {
-		Array<Contact> contactList = WorldManager.world.getContactList();
+		Array<Contact> contactList = WorldManager.getWorldInstance().getContactList();
     	for (int i = 0; i < contactList.size; i++) {
 			Contact contact = contactList.get(i);
 			if (contact.isTouching() 

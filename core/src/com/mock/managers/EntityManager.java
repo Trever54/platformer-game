@@ -63,7 +63,7 @@ public class EntityManager {
 		// Create Player Body
 		BodyDef bdef = new BodyDef();
 		bdef.type = BodyType.DynamicBody;
-		Body body = WorldManager.world.createBody(bdef);
+		Body body = WorldManager.getWorldInstance().createBody(bdef);
 		// Create Player Box Fixture
 		PolygonShape poly = new PolygonShape();
 		poly.setAsBox(16 / PPM, 24 / PPM, new Vector2(0, 8 / PPM), 0);
@@ -92,7 +92,7 @@ public class EntityManager {
 		Entity box = new Entity();
 		bdef = new BodyDef();
 		bdef.type = BodyType.DynamicBody;
-		body = WorldManager.world.createBody(bdef);
+		body = WorldManager.getWorldInstance().createBody(bdef);
 		poly = new PolygonShape();
 		poly.setAsBox(16 / PPM, 16 /PPM);
 		body.createFixture(poly, 1);
@@ -108,7 +108,7 @@ public class EntityManager {
 		Entity movingPlatform = new Entity();
 		bdef = new BodyDef();
 		bdef.type = BodyType.KinematicBody;
-		body = WorldManager.world.createBody(bdef);
+		body = WorldManager.getWorldInstance().createBody(bdef);
 		poly = new PolygonShape();
 		poly.setAsBox(32 / PPM, 16 /PPM);
 		Fixture platformFixture = body.createFixture(poly, 1);
@@ -127,7 +127,7 @@ public class EntityManager {
 		Entity movingPlatformV = new Entity();
 		bdef = new BodyDef();
 		bdef.type = BodyType.KinematicBody;
-		body = WorldManager.world.createBody(bdef);
+		body = WorldManager.getWorldInstance().createBody(bdef);
 		poly = new PolygonShape();
 		poly.setAsBox(32 / PPM, 16 /PPM);
 		Fixture platformFixtureV = body.createFixture(poly, 1);
