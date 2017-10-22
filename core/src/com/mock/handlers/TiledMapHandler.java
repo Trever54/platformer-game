@@ -2,8 +2,10 @@ package com.mock.handlers;
 
 import java.util.ArrayList;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
@@ -33,12 +35,12 @@ public class TiledMapHandler {
     private TiledMapTileLayer parallaxTerrainLayer;
     private TiledMapTileLayer collisionTerrainLayer;
     private TiledMapTileLayer backgroundTerrainLayer;
-    private TiledMapTileLayer entityLayer;
+    private MapLayer entityLayer;
     
     public TiledMapHandler(String path) {
         tileMap = new TmxMapLoader().load(path);
         tmr = new OrthogonalTiledMapRenderer(tileMap);
-        entityLayer = (TiledMapTileLayer) tileMap.getLayers().get("entities");
+        entityLayer = (MapLayer) tileMap.getLayers().get("Entities");
         nonCollisionTerrainLayer = (TiledMapTileLayer) tileMap.getLayers().get("Non-Collision Terrain");
         parallaxTerrainLayer = (TiledMapTileLayer) tileMap.getLayers().get("Parallax Terrain");
         collisionTerrainLayer = (TiledMapTileLayer) tileMap.getLayers().get("Collision Terrain");

@@ -14,6 +14,7 @@ import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
+import com.badlogic.gdx.physics.box2d.World;
 import com.mock.ecs.components.BodyComponent;
 import com.mock.ecs.components.MovingPlatformComponent;
 import com.mock.ecs.components.PlayerPhysicsComponent;
@@ -25,6 +26,7 @@ import com.mock.ecs.systems.MovingPlatformSystem;
 import com.mock.ecs.systems.PlayerMovementSystem;
 import com.mock.ecs.systems.PositionSystem;
 import com.mock.ecs.systems.RenderSystem;
+import com.mock.handlers.EntityHandler;
 import com.mock.main.Game;
 
 /**
@@ -35,8 +37,9 @@ import com.mock.main.Game;
  * @author Trever Mock
  */
 public class EntityManager {
+
+	private static Engine engine;
 	
-	private Engine engine;
 	private PlayerMovementSystem pms;
 	private PositionSystem ps;
 	private RenderSystem rs;
@@ -45,7 +48,7 @@ public class EntityManager {
 	private Entity player;
 	
 	public EntityManager(Engine engine) {
-		this.engine = engine;
+		EntityManager.engine = engine;
 		
 		// Declare Systems and Priorities of Systems
 		mps = new MovingPlatformSystem(0);
@@ -104,44 +107,6 @@ public class EntityManager {
 			.add(new RenderableComponent());
 		engine.addEntity(box);
 		
-		// create and add moving platform to engine (Horizontal)
-		Entity movingPlatform = new Entity();
-		bdef = new BodyDef();
-		bdef.type = BodyType.KinematicBody;
-		body = WorldManager.getWorldInstance().createBody(bdef);
-		poly = new PolygonShape();
-		poly.setAsBox(32 / PPM, 16 /PPM);
-		Fixture platformFixture = body.createFixture(poly, 1);
-		platformFixture.setUserData("MOVING_PLATFORM");
-		poly.dispose();
-		pcom = new PositionComponent(400, 200);
-		movingPlatform.add(pcom)
-			.add(new BodyComponent(pcom, body))
-			.add(new VelocityComponent(new Vector2(1, 0)))
-			.add(new SpriteComponent(new Texture("platform.png")))
-			.add(new RenderableComponent())
-			.add(new MovingPlatformComponent(0, 3f));
-		engine.addEntity(movingPlatform);
-		
-		// create and add moving platform to engine (Vertical)
-		Entity movingPlatformV = new Entity();
-		bdef = new BodyDef();
-		bdef.type = BodyType.KinematicBody;
-		body = WorldManager.getWorldInstance().createBody(bdef);
-		poly = new PolygonShape();
-		poly.setAsBox(32 / PPM, 16 /PPM);
-		Fixture platformFixtureV = body.createFixture(poly, 1);
-		platformFixtureV.setUserData("MOVING_PLATFORM");
-		poly.dispose();
-		pcom = new PositionComponent(300, 300);
-		movingPlatformV.add(pcom)
-			.add(new BodyComponent(pcom, body))
-			.add(new VelocityComponent(new Vector2(1, 1)))
-			.add(new SpriteComponent(new Texture("platform.png")))
-			.add(new RenderableComponent())
-			.add(new MovingPlatformComponent(1f, 3f));
-		engine.addEntity(movingPlatformV);
-		
 	}
 	
 	public void update() {
@@ -156,6 +121,10 @@ public class EntityManager {
 		float x = player.getComponent(PositionComponent.class).x;
 		float y = player.getComponent(PositionComponent.class).y;
 		return new Vector2(x, y);
+	}
+	
+	public static Engine getEntityEngineInstance() {
+		return engine;
 	}
 	
 }

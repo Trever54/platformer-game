@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="200" height="100" tilewidth="32" tileheight="32" nextobjectid="4">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="200" height="100" tilewidth="32" tileheight="32" nextobjectid="9">
  <tileset firstgid="1" name="arrowSign" tilewidth="32" tileheight="32" tilecount="1" columns="1">
   <image source="arrowSign.png" width="32" height="32"/>
  </tileset>
@@ -441,16 +441,78 @@
 </data>
  </layer>
  <objectgroup name="Entities">
-  <object id="1" name="Sign" type="Interactive" x="64" y="3072" width="32" height="32">
+  <object id="1" name="Sign" type="TEXT_ACTION" x="32" y="3072" width="32" height="32">
    <properties>
-    <property name="Action" value="TEXT_ACTION"/>
     <property name="Collision" type="int" value="0"/>
+    <property name="EntityType" value="TEXT_ACTION"/>
+    <property name="Height" type="float" value="32"/>
+    <property name="ImagePath" value="sign.png"/>
+    <property name="Text" value="Hello! This is the text for this sign!"/>
+    <property name="Width" type="float" value="32"/>
+    <property name="X" type="float" value="32"/>
+    <property name="Y" type="float" value="128"/>
    </properties>
   </object>
-  <object id="2" name="Heart" type="Healing" x="1088" y="3008" width="32" height="32">
+  <object id="5" name="Moving Platform" type="MOVING_PLATFORM" x="960" y="3104" width="64" height="32">
    <properties>
-    <property name="Action" value="HEAL_ACTION"/>
-    <property name="Collision" type="int" value="0"/>
+    <property name="Collision" type="int" value="1"/>
+    <property name="CurrentDistance" type="float" value="0"/>
+    <property name="Density" type="float" value="1"/>
+    <property name="EntityType" value="MOVING_PLATFORM"/>
+    <property name="Height" type="float" value="32"/>
+    <property name="ImagePath" value="platform.png"/>
+    <property name="MaxDistance" type="float" value="3"/>
+    <property name="MovingPlatformType" value="HARMLESS"/>
+    <property name="VelX" type="float" value="0"/>
+    <property name="VelY" type="float" value="3"/>
+    <property name="Width" type="float" value="64"/>
+    <property name="X" type="float" value="960"/>
+    <property name="Y" type="float" value="96"/>
+   </properties>
+  </object>
+  <object id="6" name="Moving Platform" type="MOVING_PLATFORM" x="1216" y="3104" width="64" height="32">
+   <properties>
+    <property name="Collision" type="int" value="1"/>
+    <property name="CurrentDistance" type="float" value="0"/>
+    <property name="Density" type="float" value="1"/>
+    <property name="EntityType" value="MOVING_PLATFORM"/>
+    <property name="Height" type="float" value="32"/>
+    <property name="ImagePath" value="platform.png"/>
+    <property name="MaxDistance" type="float" value="3"/>
+    <property name="MovingPlatformType" value="HARMLESS"/>
+    <property name="VelX" type="float" value="0"/>
+    <property name="VelY" type="float" value="1"/>
+    <property name="Width" type="float" value="64"/>
+    <property name="X" type="float" value="1216"/>
+    <property name="Y" type="float" value="96"/>
+   </properties>
+  </object>
+  <object id="7" name="Moving Platform" type="MOVING_PLATFORM" x="160" y="2944" width="64" height="32">
+   <properties>
+    <property name="Collision" type="int" value="1"/>
+    <property name="CurrentDistance" type="float" value="0"/>
+    <property name="Density" type="float" value="1"/>
+    <property name="EntityType" value="MOVING_PLATFORM"/>
+    <property name="Height" type="float" value="32"/>
+    <property name="ImagePath" value="platform.png"/>
+    <property name="MaxDistance" type="float" value="1"/>
+    <property name="MovingPlatformType" value="HARMLESS"/>
+    <property name="VelX" type="float" value="1"/>
+    <property name="VelY" type="float" value="0"/>
+    <property name="Width" type="float" value="64"/>
+    <property name="X" type="float" value="160"/>
+    <property name="Y" type="float" value="256"/>
+   </properties>
+  </object>
+  <object id="8" name="Zone Change" type="ZONE_CHANGE_ACTION" x="4768" y="2560" width="32" height="512">
+   <properties>
+    <property name="Collision" type="int" value="1"/>
+    <property name="EntityType" value="ZONE_CHANGE_ACTION"/>
+    <property name="Height" type="float" value="512"/>
+    <property name="NewZone" value="ZoneTwo"/>
+    <property name="Width" type="float" value="32"/>
+    <property name="X" type="float" value="4768"/>
+    <property name="Y" type="float" value="640"/>
    </properties>
   </object>
  </objectgroup>

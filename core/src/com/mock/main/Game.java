@@ -1,5 +1,6 @@
 package com.mock.main;
 
+import com.badlogic.gdx.Application;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
@@ -41,6 +42,7 @@ public class Game extends ApplicationAdapter {
 	
 	@Override
 	public void create () {
+		Gdx.app.setLogLevel(Application.LOG_DEBUG);
 		V_WIDTH = Gdx.graphics.getWidth();
 		V_HEIGHT = Gdx.graphics.getHeight();
 		Gdx.input.setInputProcessor(new GameInputProcessor());

@@ -41,5 +41,7 @@ public class PositionSystem extends IteratingSystem {
 			spriteCom.sprite.setX(positionCom.x);
 			spriteCom.sprite.setY(positionCom.y);
 		}
+
+		// TODO: What if there's no sprite?
 	}
 }

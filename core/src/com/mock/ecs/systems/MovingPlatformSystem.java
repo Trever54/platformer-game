@@ -6,6 +6,7 @@ import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
 import com.mock.ecs.components.BodyComponent;
 import com.mock.ecs.components.MovingPlatformComponent;
+import com.mock.ecs.components.PositionComponent;
 import com.mock.ecs.components.VelocityComponent;
 
 /**
@@ -21,6 +22,7 @@ public class MovingPlatformSystem extends IteratingSystem {
 	private ComponentMapper<BodyComponent> bodyMap = ComponentMapper.getFor(BodyComponent.class);
 	private ComponentMapper<VelocityComponent> velocityMap = ComponentMapper.getFor(VelocityComponent.class);
 	private ComponentMapper<MovingPlatformComponent> mpMap = ComponentMapper.getFor(MovingPlatformComponent.class);
+	private ComponentMapper<PositionComponent> posMap = ComponentMapper.getFor(PositionComponent.class);
 	
 	public MovingPlatformSystem(int priority) {
 		super(Family.all(MovingPlatformComponent.class).get(), priority);
@@ -31,6 +33,7 @@ public class MovingPlatformSystem extends IteratingSystem {
 		BodyComponent bodyCom = bodyMap.get(entity);
 		VelocityComponent velCom = velocityMap.get(entity);
 		MovingPlatformComponent mpCom = mpMap.get(entity);
+		PositionComponent posCom = posMap.get(entity);
 		
 		mpCom.currentDistance += velCom.velocity.len() * deltaTime;
 		if (mpCom.currentDistance > mpCom.maxDistance) {

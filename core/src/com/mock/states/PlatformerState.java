@@ -40,8 +40,8 @@ public class PlatformerState extends GameState {
 		b2dCam = new OrthographicCamera();
 		b2dCam.setToOrtho(false, (Game.V_WIDTH / PPM) / Game.ZOOM, (Game.V_HEIGHT / PPM) / Game.ZOOM);
         WorldManager.registerWorld(new World(new Vector2(0, Game.GRAVITY), true));
-		tmh = new TiledMapHandler(tiledPath);
 		entityManager = new EntityManager(new Engine());
+		tmh = new TiledMapHandler(tiledPath);
 	}
 	
 	public void update() {

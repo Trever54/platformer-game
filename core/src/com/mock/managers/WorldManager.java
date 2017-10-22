@@ -1,5 +1,6 @@
 package com.mock.managers;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.physics.box2d.World;
 
 /**
@@ -14,6 +15,7 @@ public class WorldManager {
 	
 	public static void registerWorld(World world) {
 		WorldManager.world = world;
+		Gdx.app.debug("WorldManager", "new world registered");
 	}
 	
 	public static World getWorldInstance() {

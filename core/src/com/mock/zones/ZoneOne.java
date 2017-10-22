@@ -13,7 +13,8 @@ import com.mock.utility.ZoneBounds;
 public class ZoneOne extends PlatformerState {
 	
 	public ZoneOne(GameStateManager gsm) {
-		super(gsm, "testTileMap.tmx", new ZoneBounds(0, 4768, 0, 800));
+		super(gsm, "testTileMap.tmx", new ZoneBounds(0, 4800, 0, 800));
+		
 	}
 
 }

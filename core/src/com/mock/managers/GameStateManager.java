@@ -2,6 +2,7 @@ package com.mock.managers;
 
 import java.util.Stack;
 
+import com.badlogic.gdx.Gdx;
 import com.mock.main.Game;
 import com.mock.states.GameState;
 import com.mock.zones.ZoneOne;
@@ -22,6 +23,7 @@ public class GameStateManager {
     public GameStateManager(Game game) {
         this.game = game;
         gameStates = new Stack<GameState>();
+        Gdx.app.debug("GameStateManager", "GameStateManager initialized");
         pushState(ZONE_ONE);
     }
     
